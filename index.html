@@ -7,15 +7,13 @@
       content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"
     />
     <meta name="description" content="minecraft on browser WASM-GC Offline" />
-    <meta
-      name="keywords"
-      content="minecraft, 1.12, 1.12.2"
-    />
+    <meta name="keywords" content="minecraft, 1.12, 1.12.2" />
     <title>minecraft on browser WASM-GC</title>
     <meta property="og:locale" content="en-US" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="minecraft on browser WASM-GC Offline" />
     <meta property="og:description" content="minecraft on browser" />
+    <link rel="manifest" href="manifest.json" />
     <script type="text/javascript">
       "use strict";
       var relayId = Math.floor(Math.random() * 3);
@@ -28,6 +26,23 @@
       };
 
       // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    </script>
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker
+            .register("./service-worker.js")
+            .then((registration) => {
+              console.log(
+                "ServiceWorker registration successful with scope: ",
+                registration.scope
+              );
+            })
+            .catch((err) => {
+              console.log("ServiceWorker registration failed: ", err);
+            });
+        });
+      }
     </script>
     <script type="text/javascript">
       "use strict";
@@ -385,9 +400,7 @@
       id="launch_countdown_screen"
     >
       <div style="margin: auto; text-align: center">
-        <h2>
-          เกมจะเริ่มใน <span id="launchCountdownNumber">5</span>...
-        </h2>
+        <h2>เกมจะเริ่มใน <span id="launchCountdownNumber">5</span>...</h2>
         <div
           style="
             border: 2px solid black;

@@ -1,0 +1,16 @@
+{
+    "name": "Wasm Minecraft",
+    "short_name": "Minecraft",
+    "start_url": "./index.html",
+    "display": "standalone",
+    "background_color": "#000000",
+    "theme_color": "#000000",
+    "description": "Minecraft on browser WASM-GC Offline",
+    "icons": [
+        {
+            "src": "https://github.com/fluidicon.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        }
+    ]
+}
